@@ -14,14 +14,19 @@ padding: 10px;
 background-color: #fff;
 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 border-radius: 3px;
-padding: 10px;
-margin-bottom: 10px;
+padding: 20px;
+margin-bottom: 15px;
 }
 
 .map-overlay h2 {
 line-height: 24px;
 display: block;
 margin: 0 0 10px;
+}
+.map-overlay h3 {
+line-height: 12px;
+display: block;
+margin: 10 10 10px;
 }
 .mapboxgl-popup {
 max-width: 400px;
