@@ -89,6 +89,17 @@
     // add a new layer with your polygons
 
     map.addLayer({
+      'id':'floodZones',
+      'type':'fill',
+      'source':'sandyLayer',
+      'source-layer':'Sandy_Inundation_Zone-4qcajo',
+      'paint':{
+        'fill-color':'#6e2fed',
+        'fill-opacity': 0.5
+      }
+    });
+
+    map.addLayer({
       'id':'povertyLevel',
       'type':'fill',
       'source':'censusLayer',
@@ -114,16 +125,7 @@
       }
     })
  
-    map.addLayer({
-      'id':'floodZones',
-      'type':'fill',
-      'source':'sandyLayer',
-      'source-layer':'Sandy_Inundation_Zone-4qcajo',
-      'paint':{
-        'fill-color':'#6e2fed',
-        'fill-opacity': 0.5
-      }
-    });
+
 
   map.setLayoutProperty('floodZones',"visibility", "visible");
   map.setLayoutProperty('povertyLevel',"visibility", "visible");
