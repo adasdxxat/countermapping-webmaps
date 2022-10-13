@@ -10,7 +10,7 @@ body {
 .map-overlay {
   font-family: 'Montserrat', sans-serif;
   position: fixed;
-  width: 25%;
+  width: 28%;
   top: 0;
   left: 0;
   background-color: #fff;
@@ -30,7 +30,7 @@ margin: 0 0 10px;
 }
 .mapboxgl-popup {
 max-width: 400px;
-font: 10px/20px 'Montserrat Neue',sans-serif;
+font: 12px/20px 'Montserrat Neue',sans-serif;
 }
 
 .check-container {
