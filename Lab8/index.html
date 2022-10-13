@@ -53,6 +53,10 @@
         +300 People Below Poverty Line
         <input id='povertyLevel' type='checkbox' name='viz-toggle' checked='checked'>
     </label>
+     <label class='check-container'>
+        2020 Floodplains (1 in 100 yr)
+        <input id='2020flood100' type='checkbox' name='viz-toggle' checked='checked'>
+    </label>
 
 	</div>
 
@@ -86,7 +90,24 @@
       'url': 'mapbox://iamwfx.6nowkujs'
     });
 
+    map.addSource('2020flood100Layer',{
+      'type':'vector',
+      'url': 'mapbox://iamwfx.bbchggzx'
+    });
+
+
     // add a new layer with your polygons
+
+    map.addLayer({
+      'id':'2020flood100',
+      'type':'fill',
+      'source':'2020flood100Layer',
+      'source-layer':'FutureFloodplains_2020_100yr-du18hr',
+      'paint':{
+        'fill-color':'#2fa4ed',
+        'fill-opacity': 0.5
+      }
+    });
 
     map.addLayer({
       'id':'floodZones',
