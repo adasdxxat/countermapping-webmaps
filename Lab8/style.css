@@ -15,7 +15,7 @@ body {
   left: 0;
   background-color: #fff;
   border-radius: 3px;
-  /* margin: 10px; */
+  margin: 10px;
 }
 
 .map-overlay-inner {
