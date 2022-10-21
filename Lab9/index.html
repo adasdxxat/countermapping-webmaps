@@ -306,41 +306,78 @@
         }
       });
 
-  // Explicitly set the visibility of each to be on or off.
-  // There are probably easier ways to do this../
-    map.setLayoutProperty('floodZones',"visibility", "visible");
-    map.setLayoutProperty('povertyLevel',"visibility", "visible");
-    // map.setLayoutProperty('nychaBuildings',"visibility", "visible");
-    map.setLayoutProperty('f20_100',"visibility", "visible");
-    map.setLayoutProperty('f20_500',"visibility", "visible");
-    map.setLayoutProperty('f50_100',"visibility", "visible");
-    map.setLayoutProperty('f50_500',"visibility", "visible");
-    map.setLayoutProperty('f100_100',"visibility", "visible");
-    map.setLayoutProperty('f100_500',"visibility", "visible");
+    // Explicitly set the visibility of each to be on or off.
+    // There are probably easier ways to do this../
+      map.setLayoutProperty('floodZones',"visibility", "visible");
+      map.setLayoutProperty('povertyLevel',"visibility", "visible");
+      // map.setLayoutProperty('nychaBuildings',"visibility", "visible");
+      map.setLayoutProperty('f20_100',"visibility", "visible");
+      map.setLayoutProperty('f20_500',"visibility", "visible");
+      map.setLayoutProperty('f50_100',"visibility", "visible");
+      map.setLayoutProperty('f50_500',"visibility", "visible");
+      map.setLayoutProperty('f100_100',"visibility", "visible");
+      map.setLayoutProperty('f100_500',"visibility", "visible");
 
-    map.setLayoutProperty('affHousing',"visibility", "visible");
+      map.setLayoutProperty('affHousing',"visibility", "visible");
 
-    var layerList = document.getElementById("menu");
-    var checkboxes = layerList.getElementsByTagName("input");
+      var layerList = document.getElementById("menu");
+      var checkboxes = layerList.getElementsByTagName("input");
 
 
-    function switchLayer(layer) {
-      var clickedLayersLabel = layer.target.id; // get the label of the layer cluster
-      var clickedLayers = eval(clickedLayersLabel); // create the variable from the label using the eval function
+      function switchLayer(layer) {
+        var clickedLayersLabel = layer.target.id; // get the label of the layer cluster
+        var clickedLayers = eval(clickedLayersLabel); // create the variable from the label using the eval function
 
-      var visibility = map.getLayoutProperty(clickedLayersLabel, "visibility"); // check whether the cluster of layers is visible by checking the first entry
-      if (visibility === "visible") {
-        map.setLayoutProperty(clickedLayersLabel, "visibility", "none")
-      } else {
-        map.setLayoutProperty(clickedLayersLabel, "visibility", "visible")
+        var visibility = map.getLayoutProperty(clickedLayersLabel, "visibility"); // check whether the cluster of layers is visible by checking the first entry
+        if (visibility === "visible") {
+          map.setLayoutProperty(clickedLayersLabel, "visibility", "none")
+        } else {
+          map.setLayoutProperty(clickedLayersLabel, "visibility", "visible")
+        }
       }
-    }
 
-    for (var i = 0; i < checkboxes.length; i++) {
-      // layerLabel  = checkboxes[i].id;
-      checkboxes[i].onclick = switchLayer;
-    }
+      for (var i = 0; i < checkboxes.length; i++) {
+        // layerLabel  = checkboxes[i].id;
+        checkboxes[i].onclick = switchLayer;
+      }
 
+      const popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+        });
+
+    });
+
+  map.on('mouseenter','affHousing',function(e){
+
+    const coordinates = e.features[0].geometry.coordinates.slice();
+
+    // Here's that function that does the transformation
+    function emptyToYesNo(val){
+      if (val == null || val == undefined){
+        return "No"} else {return "Yes"};
+    }
+    const Address = e.features[0].properties.Address;
+    const BBL = e.features[0].properties.BBL;
+    const Council = e.features[0].properties.Council;
+    const P_2050_1 =emptyToYesNo(e.features[0].properties.P_2050_1); // We apply this function to our value.
+    /// THERE ARE THREE MORE VARIABLES MISSING!
+    /// FILL IN THE REST
+
+   var description = '<h4> ' +Address+'<br>'+
+                  'BBL: '+BBL+'<br>'+
+                  'City Council District: '+Council+ '</h4>'+
+                  '<p> In 2050 1 in 100yr Floodplain?: '+ P_2050_1 + '<br>' + 'In 2050 1 in 500yr Floodplain?: '+P_2050_5 +'<br>'+
+                  'In 2100 1 in 100yr Floodplain?: '+P_2100_1 +'<br>'+
+                  'In 2100 1 in 500yr Floodplain?: '+P_2100_5 +'</p>'
+
+    popup.setLngLat(coordinates[0][0]).setHTML(description).addTo(map);
+    });
+
+  map.on('mouseleave', 'affHousing', function() {
+    map.getCanvas().style.cursor = '';
+    popup.remove();
+    
   });
 
     // Within a script, you comment using two backslashes.
