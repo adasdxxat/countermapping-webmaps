@@ -346,9 +346,7 @@
         closeOnClick: false
         });
 
-    });
-
-  map.on('mouseenter','affHousing',function(e){
+map.on('mouseenter','affHousing',function(e){
 
     const coordinates = e.features[0].geometry.coordinates.slice();
 
@@ -377,7 +375,11 @@
   map.on('mouseleave', 'affHousing', function() {
     map.getCanvas().style.cursor = '';
     popup.remove();
-    
+
+
+    });
+
+  
   });
 
     // Within a script, you comment using two backslashes.
