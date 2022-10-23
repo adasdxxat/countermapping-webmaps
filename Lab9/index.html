@@ -352,8 +352,10 @@
 
         // Here's that function that does the transformation
         function emptyToYesNo(val){
-          if (val == null){
-            return "No"} else {return "Yes"};
+          if val == null: 
+            return "No" 
+          else: 
+            return "Yes"
         }
         const Address = e.features[0].properties.Address;
         const BBL = e.features[0].properties.BBL;
