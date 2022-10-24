@@ -352,8 +352,8 @@
 
         // Here's that function that does the transformation
         function emptyToYesNo(val){
-          if (val != null || val != undefined){
-            return "Yes"} else {return "No"};
+          if (val == null || val == undefined || val == " "){
+            return "No"} else {return "Yes"};
         }
         const Address = e.features[0].properties.Address;
         const BBL = e.features[0].properties.BBL;
