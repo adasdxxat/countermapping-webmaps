@@ -1,6 +1,6 @@
 var config = {
     style: 'mapbox://styles/ds2333/cl9r8094c000e15nvp40f2ful',
-    accessToken: 'pk.eyJ1IjoiZHMyMzMzIiwiYSI6ImNsOHg1cGplZTAzYXozb3FzYWNnYmNsZjYifQ.3SePdbb2OGmTcQfqHc2cUw',
+    accessToken: 'pk.eyJ1IjoiZHMyMzMzIiwiYSI6ImNsOXZyZGlmeTB1M3kzdmtiemFleTNwN2gifQ.hbJeIaN6FEDtTDF__GDGYA',
     showMarkers: false,
     //projection: 'equirectangular',
     //Read more about available projections here
@@ -11,7 +11,7 @@ var config = {
     title: 'Public and Affordable Housing Flood Risk',
     subtitle: 'Mapping and Countermapping Lab10',
     byline: 'by Duxixi Shen (Ada)',
-    footer: 'Source: source citations, etc. <br> Created using <a href="https://github.com/mapbox/storytelling" target="_blank">Mapbox Storytelling</a> template.',
+    footer: 'Source:  NYCHA <br> Created using <a href="https://github.com/mapbox/storytelling" target="_blank">Mapbox Storytelling</a> template.',
     chapters: [
         {
             id: 'slug-style-id',
