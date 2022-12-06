@@ -1,0 +1,274 @@
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            font-family: 'Titillium Web', sans-serif;
+        }
+        a, a:hover, a:visited {
+            color: #0071bc;
+        }
+        #map {
+            top:0;
+            height: 100vh;
+            width:100vw;
+            position: fixed;
+        }
+        #mapInset {
+            bottom:50px;
+            right:30px;
+            height: 180px;
+            width:250px;
+            max-width:100%;
+            position: fixed;
+            z-index: 1;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
+        }
+        #mapInset .mapboxgl-ctrl-bottom-left{
+            display: none;
+        }
+        @media (max-width: 500px) {
+            #mapInset {
+                display: none;
+            }
+        }
+        #header {
+            margin: auto;
+            width: 100%;
+            position: relative;
+            z-index: 5;
+            height: 175vh;
+            background-image: url("https://image.newsis.com/2022/04/21/NISI20220421_0018720371_web.jpg");
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: 100vw 110vh;          
+        }
+        #Chapter1_2 img{
+            width: 100%;
+            height: auto;
+
+        }
+        #Chapter1-17 img{
+             width: 50%;
+            height: auto;
+        }
+        #Chapter1_3 img{
+             width: 50%;
+            height: auto;
+        }
+        #Chapter1_0 img{
+             width: 20vw;
+            height: auto;
+        }
+         #Chapter1_0 {
+            height: 40vh;
+            width: 30vw;
+        }
+        #Chapter1_10 {
+            text-align: center;
+            width:25vw;
+            position: center;
+            z-index: 5;
+            height: auto;
+            
+        }
+        #sumup  {width: 30vw;
+            height: auto;
+        }
+        #discussion-1{width: 30vw;
+            height: auto;
+        }
+        #discussion-2 img {
+             align-content:center;
+             width: 25vw;
+            height: auto;
+        }
+        #discussion-2  {
+             width: 30vw ;
+            height: auto;
+        }
+    #discussion-3  {
+             width: 26vw;
+            height: auto;
+        }
+    #discussion-3 img {
+             width: 20vw;
+            height: auto;
+        }
+        #Chpater3-10 img {
+             width: auto;
+            height: 40vh;
+        }
+        #drive-Chapter4-1 img{
+
+             width: auto;
+            height: 40vh;
+        }
+        #Chapter2-4 {
+             width: 30vw;
+            height: auto;
+        }
+        #Chapter2-4 img{
+             width: 25vw;
+            height: auto;
+        }
+        #identifier-5-2 {
+             width: 40vw;
+            height: auto;
+        }
+        #identifier-5-2 img{
+             width: 20vw;
+            height: auto;
+        }
+        #header h1, #header h2, #header p {
+            margin: 0;
+            padding: 2vh 2vw;
+            text-align: center;
+        }
+
+        #header h1 {
+            font-size: 7vh;
+            color: white;
+            padding-top: 40vh;
+            Font-weight:700;
+            font-family: 'Titillium Web', sans-serif;
+        }
+        #header h2{
+            font-size: 3vh;
+            color: white;
+            Font-weight:400;
+            padding-bottom:55vh;
+            font-family: 'Titillium Web', sans-serif;
+        }
+        #header p{
+            font-size: 2vh;
+            text-align: justify;
+            margin-left: 30vw;
+            margin-right: 30vw;
+            color: black;
+            Font-weight:400;
+            font-family: 'Titillium Web', sans-serif;
+        }
+
+        #footer {
+            width: 100%;
+            min-height: 5vh;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+            text-align: center;
+            line-height: 20px;
+            font-size: 10px;
+            position: relative;
+            z-index: 5;
+            Font-weight:400;
+            font-family: 'Titillium Web', sans-serif;
+        }
+
+        #features {
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+        }
+        #features h3 {
+        font-size: 2.4vh;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-family: 'Titillium Web', serif;
+        text-align: left;
+        max-width: 50vw;
+        }
+         #features p{
+            font-size: 1.8vh;
+            text-align: justify;
+            background-color: : white;
+            Font-weight:400;
+            font-family: 'Titillium Web', sans-serif;
+        }
+        #Chapter2-4 img {
+             width: 20vw;
+            height: auto;
+        }
+        #interlude {
+            width: 30vw;
+            height: 30vh;
+        }
+
+        #interlude p{
+            font-size: 1.2vh;
+            text-align: justify;
+            margin-left: vw;
+            margin-right: vw;
+            background-color: : white;
+            Font-weight:400;
+            font-family: 'Titillium Web', sans-serif;
+        }
+        #interlude_2 {
+            width: 100vw;
+            height: auto;
+        }
+
+        video {
+            margin-left: 3vw;
+            width:90%;
+            transform: translate(-10%);
+        }
+        .hidden {
+            visibility: hidden;
+        }
+        .centered {
+            width: 50vw;
+            margin: 0 auto;
+        }
+        .lefty {
+            width: 33vw;
+            margin-left: 5vw;
+        }
+        .righty {
+            width: 33vw;
+            margin-left: 62vw;
+        }
+        .fully {
+            width: 100%;
+            margin: auto;
+        }
+        .light {
+            color: #444;
+            background-color: #fafafa;
+        }
+        .dark {
+            color: #fafafa;
+            background-color: #444;
+        }
+        .step {
+            padding-bottom: 50vh;
+            /* margin-bottom: 10vh; */
+            opacity: 0.25;
+        }
+        .step.active {
+            opacity: 0.9;
+        }
+
+        .step div {
+            padding:  25px 50px;
+            line-height: 25px;
+            font-size: 13px;
+        }
+
+        .step img {
+            width: 100%;
+        }
+
+        @media (max-width: 750px) {
+            .centered, .lefty, .righty, .fully {
+                width: 90vw;
+                margin: 0 auto;
+            }
+        }
+
+        /* Fix issue on mobile browser where scroll breaks  */
+        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan,
+        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
+            touch-action: unset;
+        }
+
+        </style>
