@@ -317,30 +317,99 @@ map.on("load", function() {
     let w = window.innerWidth;
     let initBounds = routeData.features[0].geometry.coordinates;
 
+
     if (followPoint === false) {
-        //added this requirement.. but it does not seem to work
-        if (response.element.id.slice(0,5) === 'drive') {
-            var bounds = initBounds.reduce(function(bounds, coord) {
+        if (config.chapter.id.slice(0,5)== 'drive') {
+        var bounds = initBounds.reduce(function(bounds, coord) {
             return bounds.extend(coord);
-            }, new mapboxgl.LngLatBounds(initBounds[0], initBounds[0]));
-             
-            if (w >= 500) {
-                map.fitBounds(bounds, {
-                    padding: {top: 150, bottom: 150, right: -100, left: 200},
-                    duration: 0
-                });
-            } else {
-                map.fitBounds(bounds, {
-                    padding: 20,
-                    duration: 0
-                });
-            }
+        }, new mapboxgl.LngLatBounds(initBounds[0], initBounds[0]));
+         
+        if (w >= 500) {
+            map.fitBounds(bounds, {
+                padding: {top: 150, bottom: 150, right: -100, left: 200},
+                duration: 0
+            });
+        } else {
+            map.fitBounds(bounds, {
+                padding: 20,
+                duration: 0
+            });
         }
+    }
     } else {
         map.setZoom(followZoomLevel);
         map.setBearing(followBearing);
         map.setPitch(followPitch);
     }
+
+    // if (followPoint === false) {
+           
+    //   // if (config.chapter.id.slice(0,5)== 'drive') {
+
+    //     var bounds = initBounds.reduce(function(bounds, coord) {
+    //          return bounds.extend(coord);
+    //     }, new mapboxgl.LngLatBounds(initBounds[0], initBounds[0]));
+         
+    //     if (w >= 500) {
+    //         map.fitBounds(bounds, {
+    //             padding: {top: 150, bottom: 150, right: -100, left: 200},
+    //             duration: 0
+    //         });
+    //     } else {
+    //         map.fitBounds(bounds, {
+    //             padding: 20,
+    //             duration: 0
+    //         });
+    //     }
+    //  }
+    // // } 
+    //   else {
+    //     map.setZoom(followZoomLevel);
+    //     map.setBearing(followBearing);
+    //     map.setPitch(followPitch);
+    // }
+
+
+
+
+  // function handleStepProgress(response) {
+
+  //      if ((followPoint == false)  && (response.element.id.slice(0,5)== 'drive')) {
+       
+  //           var bounds = initBounds.reduce(function(bounds, coord) {
+  //           return bounds.extend(coord);
+  //           }, new mapboxgl.LngLatBounds(initBounds[0], initBounds[0]));
+             
+  //           if (w >= 500) {
+  //               map.fitBounds(bounds, {
+  //                   padding: {top: 150, bottom: 150, right: -100, left: 200},
+  //                   duration: 0
+  //               });
+  //           } else {
+  //               map.fitBounds(bounds, {
+  //                   padding: 20,
+  //                   duration: 0
+  //               });
+  //           }
+
+  //   } else {
+  //    }
+  //   }
+
+    // Second try
+    // if ((followPoint == false)  && (response.element.id.slice(0,5)== 'drive')) {
+
+    //     response.element.location = {center: [126.93316, 37.58357],
+    //             zoom: 15.18,
+    //             pitch: 56.98,
+    //             bearing: -16.52}
+    //     };
+    // else {
+    //     map.setZoom(followZoomLevel);
+    //     map.setBearing(followBearing);
+    //     map.setPitch(followPitch);
+    // // }
+
 
     map.addSource('lineSource', {
         "type": "geojson",
