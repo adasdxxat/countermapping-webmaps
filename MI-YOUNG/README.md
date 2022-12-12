@@ -1,7 +1,8 @@
-## Scrolly Drive
-This template is an extension of the Mapbox "scrollytelling" template and is meant for data journalists and digital storytellers of any kind.
+## Scrolly Route
+The scrolly route is referred to the template of "scrollytelling" template. 
 
 Full instructions on use can be found [here](http://formerspatial.com/scrolly-drive).
 
-## Prerequisites
-Please familiarize yourself with Mapbox's template documentation [here](https://github.com/mapbox/storytelling).
+## Statement
+This is part of the deliverables of CRP 3850/5850: Mapping and Countermapping Fall 2022.
+The full report can be found [here](https://yk539.github.io/countermapping-webmaps/Project/index.html).
